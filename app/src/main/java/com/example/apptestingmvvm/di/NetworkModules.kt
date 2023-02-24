@@ -32,7 +32,7 @@ class NetworkModules {
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder().addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://api.github.com/").client(okHttpClient).build()
+            .baseUrl("https://my-json-server.typicode.com/").client(okHttpClient).build()
 
     @Provides
     @Singleton
