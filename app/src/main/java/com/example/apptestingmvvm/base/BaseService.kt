@@ -1,10 +1,11 @@
-package com.example.apptestingmvvm.network
+package com.example.apptestingmvvm.base
 
+import com.example.apptestingmvvm.network.ResultWrapper
 import retrofit2.HttpException
 import retrofit2.Response
 
 abstract class BaseService {
-    suspend fun <T : Any> handleApi(
+    suspend fun <T : Any> callApi(
         execute: suspend () -> Response<T>
     ): ResultWrapper<T> {
         return try {

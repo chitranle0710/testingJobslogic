@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.apptestingmvvm.R
 import com.example.apptestingmvvm.data.entity.ToBuyResponse
 import com.example.apptestingmvvm.databinding.ItemBuyBinding
 
@@ -26,9 +27,10 @@ class ToBuyAdapter : RecyclerView.Adapter<ToBuyAdapter.ToBuyViewHolder>() {
         binding.root
     ) {
         fun bind(toBuyResponse: ToBuyResponse) {
-            binding.tvName.text = toBuyResponse.name
-            binding.tvPrice.text = toBuyResponse.price.toString()
-            binding.tvQuantity.text = toBuyResponse.quantity.toString()
+            binding.tvName.text = itemView.context.getString(R.string.name, toBuyResponse.name)
+            binding.tvPrice.text = itemView.context.getString(R.string.price, toBuyResponse.price)
+            binding.tvQuantity.text =
+                itemView.context.getString(R.string.quantity, toBuyResponse.quantity)
         }
     }
 

@@ -43,10 +43,7 @@ class ToBuyViewModel @Inject constructor(
         viewModelScope.safeLaunch {
             val sellItemsList = getItemSellsList()
             if (sellItemsList.find { it.name == itemSell.name && it.price == itemSell.price && it.quantity == itemSell.quantity } == null) {
-                val result = insertItemSellUseCase.insertToSell(itemSell)
-                Log.d("ToBuyViewModel", "$result")
-            } else {
-                Log.d("ToBuyViewModel", "da ton tai trong localdatabase")
+                insertItemSellUseCase.insertToSell(itemSell)
             }
         }
     }

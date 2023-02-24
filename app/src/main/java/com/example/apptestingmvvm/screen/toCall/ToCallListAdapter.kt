@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.apptestingmvvm.R
 import com.example.apptestingmvvm.data.entity.ToCallResponse
 import com.example.apptestingmvvm.databinding.ItemToCallBinding
 
@@ -24,8 +25,9 @@ class ToCallListAdapter : RecyclerView.Adapter<ToCallListAdapter.ToCallViewHolde
     inner class ToCallViewHolder(private val binding: ItemToCallBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(toCallResponse: ToCallResponse) {
-            binding.tvName.text = toCallResponse.name
-            binding.tvNumber.text = toCallResponse.number
+            binding.tvName.text = itemView.context.getString(R.string.name, toCallResponse.name)
+            binding.tvNumber.text =
+                itemView.context.getString(R.string.number, toCallResponse.number)
         }
     }
 

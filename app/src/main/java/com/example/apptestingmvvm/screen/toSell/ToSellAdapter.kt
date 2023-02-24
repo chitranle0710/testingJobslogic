@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.apptestingmvvm.R
 import com.example.apptestingmvvm.data.entity.ItemSell
 import com.example.apptestingmvvm.databinding.ItemBuyBinding
 
@@ -26,9 +27,10 @@ class ToSellAdapter : RecyclerView.Adapter<ToSellAdapter.ToSellViewHolder>() {
     inner class ToSellViewHolder(private val binding: ItemBuyBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(itemSell: ItemSell) {
-            binding.tvName.text = itemSell.name
-            binding.tvPrice.text = itemSell.price.toString()
-            binding.tvQuantity.text = itemSell.quantity.toString()
+            binding.tvName.text = itemView.context.getString(R.string.name, itemSell.name)
+            binding.tvPrice.text = itemView.context.getString(R.string.price, itemSell.price)
+            binding.tvQuantity.text =
+                itemView.context.getString(R.string.quantity, itemSell.quantity)
         }
     }
 
