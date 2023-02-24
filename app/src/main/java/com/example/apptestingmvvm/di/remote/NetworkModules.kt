@@ -15,7 +15,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModules {
-
     @Singleton
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
@@ -32,7 +31,7 @@ class NetworkModules {
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder().addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://my-json-server.typicode.com/").client(okHttpClient).build()
+            .baseUrl(BuildConfig.URL).client(okHttpClient).build()
 
     @Provides
     @Singleton
