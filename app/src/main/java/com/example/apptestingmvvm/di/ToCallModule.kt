@@ -1,7 +1,7 @@
 package com.example.apptestingmvvm.di
 
-import com.example.apptestingmvvm.repository.toCallRepo.ToCallRepository
-import com.example.apptestingmvvm.repository.toCallRepo.ToCallRepositoryImpl
+import com.example.apptestingmvvm.domain.repository.toCallRepo.ToCallRepository
+import com.example.apptestingmvvm.domain.repository.toCallRepo.ToCallRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

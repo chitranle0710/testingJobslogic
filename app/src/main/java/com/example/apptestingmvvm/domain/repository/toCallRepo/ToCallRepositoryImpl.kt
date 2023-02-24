@@ -1,11 +1,11 @@
-package com.example.apptestingmvvm.repository.toCallRepo
+package com.example.apptestingmvvm.domain.repository.toCallRepo
 
 import com.example.apptestingmvvm.data.entity.ToBuyResponse
 import com.example.apptestingmvvm.data.entity.ToCallResponse
 import com.example.apptestingmvvm.network.ApiService
 import com.example.apptestingmvvm.network.BaseService
 import com.example.apptestingmvvm.network.ResultWrapper
-import com.example.apptestingmvvm.repository.toBuyRepo.ToBuyRepository
+import com.example.apptestingmvvm.domain.repository.toBuyRepo.ToBuyRepository
 import javax.inject.Inject
 
 class ToCallRepositoryImpl @Inject constructor(

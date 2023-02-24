@@ -9,33 +9,29 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apptestingmvvm.MainActivity
 import com.example.apptestingmvvm.R
+import com.example.apptestingmvvm.base.BaseFragment
 import com.example.apptestingmvvm.data.entity.ToCallResponse
 import com.example.apptestingmvvm.databinding.FragmentToCallBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ToCallFragment : Fragment() {
+class ToCallFragment : BaseFragment<FragmentToCallBinding>(FragmentToCallBinding::inflate) {
     private val callViewModel: ToCallViewModel by viewModels()
-    private var binding: FragmentToCallBinding? = null
     private val adapter by lazy {
         ToCallListAdapter()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentToCallBinding.inflate(layoutInflater)
+    override fun initialView(savedInstanceState: Bundle?) {
         initRecyclerView()
         getListCallItems()
         registerObserver()
-        return binding?.root
     }
 
     private fun initRecyclerView() {
-        binding?.rvCall?.layoutManager =
+        binding.rvCall.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        binding?.rvCall?.setHasFixedSize(true)
-        binding?.rvCall?.adapter = adapter
+        binding.rvCall.setHasFixedSize(true)
+        binding.rvCall.adapter = adapter
     }
 
     private fun getListCallItems() {

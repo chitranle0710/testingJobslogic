@@ -1,4 +1,4 @@
-package com.example.apptestingmvvm.repository.toBuyRepo
+package com.example.apptestingmvvm.domain.repository.toBuyRepo
 
 import com.example.apptestingmvvm.data.entity.ToBuyResponse
 import com.example.apptestingmvvm.network.ResultWrapper

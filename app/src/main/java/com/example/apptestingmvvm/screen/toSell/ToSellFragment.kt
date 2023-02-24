@@ -9,29 +9,24 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.apptestingmvvm.base.BaseFragment
 import com.example.apptestingmvvm.databinding.FragmentToSellBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ToSellFragment : Fragment() {
-    private var binding: FragmentToSellBinding? = null
+class ToSellFragment : BaseFragment<FragmentToSellBinding>(FragmentToSellBinding::inflate) {
     private val sellViewModel: ToSellViewModel by viewModels()
     private val adapter by lazy { ToSellAdapter() }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentToSellBinding.inflate(layoutInflater)
+    override fun initialView(savedInstanceState: Bundle?) {
         initRecyclerView()
         registerObserver()
-        return binding?.root
     }
 
     private fun initRecyclerView() {
-        binding?.rvSell?.layoutManager =
+        binding.rvSell.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        binding?.rvSell?.setHasFixedSize(true)
-        binding?.rvSell?.adapter = adapter
+        binding.rvSell.setHasFixedSize(true)
+        binding.rvSell.adapter = adapter
     }
 
     private fun registerObserver() {

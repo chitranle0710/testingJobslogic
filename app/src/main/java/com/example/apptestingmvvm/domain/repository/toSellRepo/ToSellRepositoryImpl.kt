@@ -1,4 +1,4 @@
-package com.example.apptestingmvvm.repository.toSellRepo
+package com.example.apptestingmvvm.domain.repository.toSellRepo
 
 import com.example.apptestingmvvm.data.entity.ItemSell
 import com.example.apptestingmvvm.di.local.ItemSellDAO

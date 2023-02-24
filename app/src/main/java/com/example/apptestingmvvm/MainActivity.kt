@@ -7,6 +7,8 @@ import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.example.apptestingmvvm.databinding.ActivityMainBinding
 import com.example.apptestingmvvm.screen.viewmodel.MainViewModel
+import com.example.apptestingmvvm.util.beGone
+import com.example.apptestingmvvm.util.beVisible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,9 +30,9 @@ class MainActivity : AppCompatActivity() {
 
     fun isShowLoading(isShow: Boolean) {
         if (isShow) {
-            binding.progressBar.visibility = View.VISIBLE
+            binding.progressBar.beVisible()
         } else {
-            binding.progressBar.visibility = View.GONE
+            binding.progressBar.beGone()
         }
     }
 

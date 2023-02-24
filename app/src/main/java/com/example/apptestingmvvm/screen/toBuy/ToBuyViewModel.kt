@@ -11,7 +11,7 @@ import com.example.apptestingmvvm.domain.usecase.GetItemBuyUseCase
 import com.example.apptestingmvvm.domain.usecase.GetItemSellUseCase
 import com.example.apptestingmvvm.domain.usecase.InsertItemSellUseCase
 import com.example.apptestingmvvm.network.ResultWrapper
-import com.example.apptestingmvvm.repository.toBuyRepo.ToBuyRepository
+import com.example.apptestingmvvm.domain.repository.toBuyRepo.ToBuyRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
