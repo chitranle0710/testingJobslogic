@@ -29,7 +29,7 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_toBuyFragment)
         }
         binding?.btnSell?.setOnClickListener {
-
+            findNavController().navigate(R.id.action_homeFragment_to_toSellFragment)
         }
     }
 }

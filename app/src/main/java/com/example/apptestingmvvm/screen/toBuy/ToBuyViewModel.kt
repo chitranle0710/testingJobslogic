@@ -1,10 +1,15 @@
 package com.example.apptestingmvvm.screen.toBuy
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.apptestingmvvm.base.BaseViewModel
+import com.example.apptestingmvvm.data.entity.ItemSell
 import com.example.apptestingmvvm.data.entity.ToBuyResponse
 import com.example.apptestingmvvm.data.entity.ToCallResponse
+import com.example.apptestingmvvm.domain.usecase.GetItemBuyUseCase
+import com.example.apptestingmvvm.domain.usecase.GetItemSellUseCase
+import com.example.apptestingmvvm.domain.usecase.InsertItemSellUseCase
 import com.example.apptestingmvvm.network.ResultWrapper
 import com.example.apptestingmvvm.repository.toBuyRepo.ToBuyRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,7 +17,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ToBuyViewModel @Inject constructor(
-    private val toBuyRepository: ToBuyRepository
+    private val useCase: GetItemBuyUseCase,
+    private val insertItemSellUseCase: InsertItemSellUseCase,
+    private val getItemSellUseCase: GetItemSellUseCase
 ) : BaseViewModel() {
 
     val mutableListBuyLiveData = MutableLiveData<List<ToBuyResponse>>()
@@ -20,7 +27,7 @@ class ToBuyViewModel @Inject constructor(
     fun getListBuyItems() {
         loadingData.postValue(true)
         viewModelScope.safeLaunch {
-            when (val result = toBuyRepository.getListToBuyItems()) {
+            when (val result = useCase.getListToBuyItems()) {
                 is ResultWrapper.Success -> {
                     loadingData.postValue(false)
                     mutableListBuyLiveData.postValue(result.data)
@@ -30,5 +37,21 @@ class ToBuyViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun insertItemToSell(itemSell: ItemSell) {
+        viewModelScope.safeLaunch {
+            val sellItemsList = getItemSellsList()
+            if (sellItemsList.find { it.name == itemSell.name && it.price == itemSell.price && it.quantity == itemSell.quantity } == null) {
+                val result = insertItemSellUseCase.insertToSell(itemSell)
+                Log.d("ToBuyViewModel", "$result")
+            } else {
+                Log.d("ToBuyViewModel", "da ton tai trong localdatabase")
+            }
+        }
+    }
+
+    private suspend fun getItemSellsList(): List<ItemSell> {
+        return getItemSellUseCase.getListItemSell()
     }
 }

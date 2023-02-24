@@ -9,6 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apptestingmvvm.MainActivity
 import com.example.apptestingmvvm.R
+import com.example.apptestingmvvm.data.entity.ItemSell
+import com.example.apptestingmvvm.data.entity.ToBuyResponse
+import com.example.apptestingmvvm.data.entity.ToCallResponse
 import com.example.apptestingmvvm.databinding.FragmentToBuyBinding
 import com.example.apptestingmvvm.screen.toCall.ToCallListAdapter
 import com.example.apptestingmvvm.screen.toCall.ToCallViewModel
@@ -46,9 +49,22 @@ class ToBuyFragment : Fragment() {
     private fun registerObserver() {
         toBuyViewModel.mutableListBuyLiveData.observe(viewLifecycleOwner) {
             adapter.differ.submitList(it)
+            insertItemBuyToSellList(it)
         }
         toBuyViewModel.loadingData.observe(viewLifecycleOwner) {
             (activity as MainActivity).isShowLoading(it)
+        }
+    }
+
+    private fun insertItemBuyToSellList(list: List<ToBuyResponse>?) {
+        if (!list.isNullOrEmpty()) {
+            for (i in list) {
+                val itemSell = ItemSell()
+                itemSell.name = i.name
+                itemSell.price = i.price
+                itemSell.quantity = i.quantity
+                toBuyViewModel.insertItemToSell(itemSell)
+            }
         }
     }
 

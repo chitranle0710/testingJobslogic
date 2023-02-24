@@ -1,4 +1,4 @@
-package com.example.apptestingmvvm.di
+package com.example.apptestingmvvm.di.remote
 
 import com.example.apptestingmvvm.BuildConfig
 import com.example.apptestingmvvm.network.ApiService
