@@ -1,4 +1,4 @@
-package com.example.apptestingmvvm.screen.toBuy
+package com.example.apptestingmvvm.view.toBuy
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

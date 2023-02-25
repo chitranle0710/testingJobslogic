@@ -1,4 +1,4 @@
-package com.example.apptestingmvvm.screen.toCall
+package com.example.apptestingmvvm.view.toCall
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

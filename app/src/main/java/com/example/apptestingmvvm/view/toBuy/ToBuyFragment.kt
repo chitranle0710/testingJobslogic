@@ -1,21 +1,13 @@
-package com.example.apptestingmvvm.screen.toBuy
+package com.example.apptestingmvvm.view.toBuy
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apptestingmvvm.MainActivity
-import com.example.apptestingmvvm.R
 import com.example.apptestingmvvm.base.BaseFragment
 import com.example.apptestingmvvm.data.entity.ItemSell
 import com.example.apptestingmvvm.data.entity.ToBuyResponse
-import com.example.apptestingmvvm.data.entity.ToCallResponse
 import com.example.apptestingmvvm.databinding.FragmentToBuyBinding
-import com.example.apptestingmvvm.screen.toCall.ToCallListAdapter
-import com.example.apptestingmvvm.screen.toCall.ToCallViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.example.apptestingmvvm.di
+package com.example.apptestingmvvm.di.scope
 
 import javax.inject.Qualifier
 

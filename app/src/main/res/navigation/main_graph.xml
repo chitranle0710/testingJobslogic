@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.apptestingmvvm.screen.home.HomeFragment"
+        android:name="com.example.apptestingmvvm.view.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -22,17 +22,17 @@
     </fragment>
     <fragment
         android:id="@+id/toBuyFragment"
-        android:name="com.example.apptestingmvvm.screen.toBuy.ToBuyFragment"
+        android:name="com.example.apptestingmvvm.view.toBuy.ToBuyFragment"
         android:label="fragment_to_buy"
         tools:layout="@layout/fragment_to_buy" />
     <fragment
         android:id="@+id/toCallFragment"
-        android:name="com.example.apptestingmvvm.screen.toCall.ToCallFragment"
+        android:name="com.example.apptestingmvvm.view.toCall.ToCallFragment"
         android:label="fragment_to_call"
         tools:layout="@layout/fragment_to_call" />
     <fragment
         android:id="@+id/toSellFragment"
-        android:name="com.example.apptestingmvvm.screen.toSell.ToSellFragment"
+        android:name="com.example.apptestingmvvm.view.toSell.ToSellFragment"
         android:label="fragment_to_sell"
         tools:layout="@layout/fragment_to_sell" />
 </navigation>

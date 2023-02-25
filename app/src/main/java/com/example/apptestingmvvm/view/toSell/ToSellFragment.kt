@@ -1,12 +1,7 @@
-package com.example.apptestingmvvm.screen.toSell
+package com.example.apptestingmvvm.view.toSell
 
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apptestingmvvm.base.BaseFragment

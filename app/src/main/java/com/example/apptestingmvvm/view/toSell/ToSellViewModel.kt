@@ -1,4 +1,4 @@
-package com.example.apptestingmvvm.screen.toSell
+package com.example.apptestingmvvm.view.toSell
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -18,10 +18,13 @@ class ToSellViewModel @Inject constructor(
 
     fun getItemSell() {
         viewModelScope.safeLaunch {
+            loadingData.postValue(true)
             val result = getItemSellUseCase.getListItemSell()
             if (result.isNotEmpty()) {
+                loadingData.postValue(false)
                 showListSellMutableLiveData.postValue(result)
             } else {
+                loadingData.postValue(false)
                 errorMessage.postValue("Empty list!!!")
             }
         }

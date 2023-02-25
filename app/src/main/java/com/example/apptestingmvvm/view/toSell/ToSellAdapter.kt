@@ -1,6 +1,5 @@
-package com.example.apptestingmvvm.screen.toSell
+package com.example.apptestingmvvm.view.toSell
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
